@@ -13,3 +13,4 @@ Finding factors that affected the house price in US over last 20 years
 - [population growth](https://data.worldbank.org/indicator/SP.POP.GROW?locations=US)
 - [S&P index](https://finance.yahoo.com/quote/%5EGSPC/history/?frequency=1mo&period1=1027296000&period2=1721668158)
 - [unemployment rate](https://www.bls.gov/charts/employment-situation/civilian-unemployment-rate.htm#)
+- [Vacancy rate](https://fred.stlouisfed.org/series/RRVRUSQ156N)

@@ -1,9 +1,11 @@
 from dash import Dash, html, dcc, callback, Output, Input
 import plotly.express as px
 import pandas as pd
+from components.Introduction import introduction, data_visualization
 import plotly.graph_objs as go
 from sklearn.preprocessing import MinMaxScaler
 from views import dic
+from utils import create_heatmap
 
 df = pd.read_csv('../processed.csv')
 other_columns = ['gdp_growth', 'house_inventory', 'Diff_house_inventory',
@@ -13,15 +15,21 @@ base_columns = ['house_price', 'house_price_diff']
 app = Dash()
 
 app.layout = [
+
+
     html.H1(children='Title of Dash App', style={'textAlign': 'center'}),
+    introduction,
+    html.Br(),
+    data_visualization,
     dcc.Dropdown(other_columns, 'gdp_growth', id='dropdown-selection'),
-    dcc.Graph(id='graph-content'),
-    html.P(id='info', children="hello world")
+    dcc.Graph(id='data-visualization'),
+    html.P(id='info', children="hello world"),
+    dcc.Graph(id='correlation', figure=create_heatmap(df,other_columns+base_columns))
 ]
 
 
 @callback(
-    Output('graph-content', 'figure'),
+    Output('data-visualization', 'figure'),
     Input('dropdown-selection', 'value')
 )
 def update_graph(value):

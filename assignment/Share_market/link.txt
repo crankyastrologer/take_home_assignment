@@ -1,1 +1,2 @@
+
 https://finance.yahoo.com/quote/%5EGSPC/history/?frequency=1mo&period1=1027296000&period2=1721668158

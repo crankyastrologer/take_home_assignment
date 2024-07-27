@@ -9,16 +9,16 @@ from components.conclusion import concl
 import plotly.graph_objs as go
 from sklearn.preprocessing import MinMaxScaler
 from views import dic
-
+import dash_bootstrap_components as dbc
 from utils import create_heatmap
 
-df = pd.read_csv('../processed.csv')
+df = pd.read_csv('processed.csv')
 
 other_columns = ['gdp_growth', 'house_inventory', 'Diff_house_inventory',
                  'inflation', 'material_cost', 'mortgage_rate', 'population_growth',
                  'shares', 'Unemployment', 'vacancy_rate', 'Total', 'rent_price']
 base_columns = ['house_price', 'house_price_diff']
-app = Dash()
+app = Dash(__name__, external_stylesheets=[dbc.themes.UNITED])
 
 app.layout = [
 
@@ -88,8 +88,8 @@ def update_info(value):
 )
 def update_iframes(selected_time_period):
     # Get the filenames based on the selected time period
-    crossval_file = f'../graphs/{dic2[selected_time_period]}_crossval.html'
-    best_feature_file = f'../graphs/{dic3[selected_time_period]}.html'
+    crossval_file = f'graphs/{dic2[selected_time_period]}_crossval.html'
+    best_feature_file = f'graphs/{dic3[selected_time_period]}.html'
 
     # Read the content of the HTML files
     with open(crossval_file, 'r', encoding='utf-8') as file:

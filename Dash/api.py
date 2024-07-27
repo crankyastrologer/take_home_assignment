@@ -24,7 +24,11 @@ app.layout = [
     dcc.Dropdown(other_columns, 'gdp_growth', id='dropdown-selection'),
     dcc.Graph(id='data-visualization'),
     html.P(id='info', children="hello world"),
-    dcc.Graph(id='correlation', figure=create_heatmap(df,other_columns+base_columns))
+    dcc.Graph(id='correlation', figure=create_heatmap(df,other_columns+base_columns)),
+html.Iframe(
+        srcDoc=open('../graphs/crossval.html', 'r', encoding='utf-8').read(),
+        style={"width": "100%", "height": "600px", "border": "none"}
+    )
 ]
 
 

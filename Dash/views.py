@@ -36,7 +36,9 @@ dic = {
     Note: The unemployment data is only available from June, 2004''',
     'shares': '''Stock market and housing prices goes hand in hand for most part both being affected by the financial crash 
     and the pandemic looks like they both are affected by how good the economy is doing and with the recent increase in institutional
-    investment in housing market this correlation will probably increase.'''
+    investment in housing market this correlation will probably increase.''',
+    'Diff_house_inventory': "There is seasonal trends in house inventory difference as expected because the similar "
+                            "was present in the house price data"
 
 
 }
